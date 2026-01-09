@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -49,22 +48,26 @@ public class Main extends HttpServlet {
 		String text = request.getParameter("text");
 
 		if (text != null && text.length() != 0) {
-			ServletContext application = this.getServletContext();
-			@SuppressWarnings("unchecked")
-			List<Mutter> mutterList = (List<Mutter>) application.getAttribute("mutterList");
-
+			
+			
 			HttpSession session = request.getSession();
 			User loginUser = (User) session.getAttribute("loginUser");
 
 			Mutter mutter = new Mutter(loginUser.getName(), text);
 			PostMutterLogic postMutterLogic = new PostMutterLogic();
-			postMutterLogic.execute(mutter, mutterList);
+			postMutterLogic.execute(mutter);
 
 //			application.setAttribute("mutterList", mutterList);
 		} else {
 			String msg = "つぶやきが入力されていません。";
 			request.setAttribute("errorMsg", msg);
 		}
+		
+		GetMutterListLogic getMutterListLogic = new GetMutterListLogic();
+		List<Mutter> mutterList = getMutterListLogic.execute();
+		request.setAttribute("mutterList", mutterList);
+		
+		
 		String url = "WEB-INF/jsp/main.jsp";
 		RequestDispatcher d = request.getRequestDispatcher(url);
 		d.forward(request, response);
