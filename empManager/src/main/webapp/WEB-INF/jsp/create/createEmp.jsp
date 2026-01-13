@@ -13,25 +13,32 @@
   <div class="container center-align">
     <main>
       <h2>新規社員登録</h2>
-      <form action="CreatConfirm" method="post">
+      <form action="CreateConfirmServlet" method="post">
         <table>
          <tr>
            <th>ID</th>
-           <td><input type="text" name="id" value=""></td>
+           <td><input type="text" name="id" 
+                       value="<c:out value="${emp.id}" />"></td>
          </tr>
          <tr>
            <th>名前</th>
-           <td><input type="text" name="name" value=""></td>
+           <td><input type="text" name="name" 
+                       value="<c:out value="${emp.name}" />"</td>
          </tr>
          <tr>
            <th>年齢</th>
-           <td><input type="text" name="age" value=""></td>
+           <td><input type="text" name="age" 
+                       value="<c:out value="${emp.age}" />"></td>
          </tr>
         </table>
-        <input type="submit" formaction="" value="取消">
+        <input type="submit" formaction="list" formmethod="get" value="取消">
         <input type="submit" value="確認">
       </form>
-    
+      <ul class="error">
+        <c:forEach var="error" items="${errorList}">
+          <li><c:out value="${error}" /></li>
+        </c:forEach>
+      </ul>
     </main>
     <jsp:include page="../common/aside.jsp" />
   </div>
