@@ -6,7 +6,7 @@
         <input type="submit" value="新規登録" class="btn">
       </form>
       
-      <form action="" method="post">
+      <form action="FindNameServlet" method="post">
         <input type="text" name="name" placeholder="名前">
         <input type="submit" value="検索" class="btn">
       </form>
