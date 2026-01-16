@@ -23,6 +23,7 @@ public class FindNameServlet extends HttpServlet {
 		FindListByNameLogic logic = new FindListByNameLogic();
 		List<Employee> empList = logic.execute(n);
 		request.setAttribute("empList", empList);
+		request.setAttribute("h2text", "検索結果");
 		String url = "WEB-INF/jsp/findName/findNameEmpList.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
 	}

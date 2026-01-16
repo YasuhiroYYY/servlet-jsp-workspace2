@@ -22,6 +22,7 @@ public class ListServlet extends HttpServlet {
 		List<Employee> empList = logic.execute();
 		
 		request.setAttribute("empList", empList);
+		request.setAttribute("h2text", "社員一覧");
 		String url = "WEB-INF/jsp/find/empList.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
 	}

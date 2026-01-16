@@ -12,7 +12,7 @@
 
   <div class="container center-align">
     <main>
-      <h2>検索結果一覧</h2>
+      <h2><c:out value="${h2text}" /></h2>
       <table>
         <tr>
           <th>ID</th>
@@ -42,6 +42,11 @@
           </tr>
         </c:forEach>       
       </table>
+          <c:if test="${h2text == '検索結果'} }">
+		    <form action="list" method="get">
+		      <input type="submit" value="一覧へ">
+		    </form>
+      </c:if>
     </main>
     <jsp:include page="../common/aside.jsp" />
   </div>
