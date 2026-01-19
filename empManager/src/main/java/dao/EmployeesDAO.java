@@ -26,7 +26,7 @@ public class EmployeesDAO {
 		
 		try (Connection conn = DriverManager.getConnection
 				(JDBC_URL, DB_USER, DB_PASS)){
-			String sql = "SELECT ID, NAME, AGE FROM EMPLOYEES";
+			String sql = "SELECT ID, NAME, AGE FROM EMPLOYEES ORDER BY ID ASC; ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			ResultSet rs = pStmt.executeQuery();
 			
