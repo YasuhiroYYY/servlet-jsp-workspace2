@@ -4,15 +4,15 @@
 <!DOCTYPE html>
 
 <html>
-<jsp:include page="../common/head.jsp" />
+<jsp:include page="common/head.jsp" />
 
 <body>
 
-<jsp:include page="../common/header.jsp" />
+<jsp:include page="common/header.jsp" />
 
   <div class="container center-align">
     <main>
-      <h2>新規社員登録確認</h2>
+      <h2>${h2text}確認</h2>
       <table>
        <tr>
          <th>ID</th>
@@ -27,12 +27,12 @@
          <td><c:out value="${emp.age}" /></td>
        </tr>
       </table>
-      <form action="CreateDoneServlet" method="post">
+      <form action="${actionUrl}" method="post">
         <input type="hidden" name="id" value="<c:out value="${emp.id}" />">
         <input type="hidden" name="name" value="<c:out value="${emp.name}" />">
         <input type="hidden" name="age" value="<c:out value="${emp.age}" />">
-        <input type="submit" formaction="CreateServlet" value="戻る">
-        <input type="submit" value="登録">
+        <input type="submit" formaction="${gobackUrl}" value="戻る">
+        <input type="submit" value="${btnValue}">
       </form>
       <ul class="error">
         <c:forEach var="error" items="${errorList}">
@@ -40,8 +40,8 @@
         </c:forEach>
       </ul>
     </main>
-    <jsp:include page="../common/aside.jsp" />
+    <jsp:include page="common/aside.jsp" />
   </div>
-<jsp:include page="../common/footer.jsp" />
+<jsp:include page="common/footer.jsp" />
 </body>
 </html>

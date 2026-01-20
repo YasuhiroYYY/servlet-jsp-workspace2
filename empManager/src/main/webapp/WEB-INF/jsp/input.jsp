@@ -17,8 +17,18 @@
         <table>
          <tr>
            <th>ID</th>
-           <td><input type="text" name="id" 
-                       value="<c:out value="${emp.id}" />"></td>
+           <td>
+           <c:choose>
+             <c:when test="${h2text == '新規登録'}">
+           <input type="text" name="id" 
+                       value="<c:out value="${emp.id}" />">
+             </c:when>
+             <c:otherwise>
+             　　<c:out value="${emp.id}" />
+             </c:otherwise>
+           </c:choose>
+           
+           </td>
          </tr>
          <tr>
            <th>名前</th>
@@ -31,6 +41,9 @@
                        value="<c:out value="${emp.age}" />"></td>
          </tr>
         </table>
+        <c:if test="${h2text == '社員編集' }">
+              <input type="hidden" name="id" value="<c:out value="${emp.id}" />">
+        </c:if>
         <input type="submit" formaction="list" formmethod="get" value="取消">
         <input type="submit" value="確認">
       </form>

@@ -35,19 +35,26 @@ public class Confirm extends HttpServlet {
 				
 
 				if (errorList.size() > 0) {
-					url = "WEB-INF/jsp/create/createEmp.jsp";
+					url = "WEB-INF/jsp/input.jsp";
 					request.setAttribute("errorList", errorList);
 				} else {
-					url = "WEB-INF/jsp/create/createConfirm.jsp";
+					url = "WEB-INF/jsp/confirm.jsp";
 				}
-
+				request.setAttribute("h2text", "新規登録");
+				request.setAttribute("actionUrl", "CreateDoneServlet");
+				request.setAttribute("gobackUrl", "CreateServlet");
+				request.setAttribute("btnValue", "登録");
 			}
 	        case "/UpdateConfirmServlet" -> {
 	    		if (errorList.size() > 0) {
-	    			url = "WEB-INF/jsp/update/updateEmp.jsp";
+	    			url = "WEB-INF/jsp/input.jsp";
 	    			request.setAttribute("errorList", errorList);
 	    		} else {
-	    			url = "WEB-INF/jsp/update/updateConfirm.jsp";
+	    			url = "WEB-INF/jsp/confirm.jsp";
+	    			request.setAttribute("h2text", "社員編集");
+					request.setAttribute("actionUrl", "UpdateDoneServlet");
+					request.setAttribute("gobackUrl", "UpdateServlet");
+					request.setAttribute("btnValue", "編集");
 	    		}
 			}
 		}

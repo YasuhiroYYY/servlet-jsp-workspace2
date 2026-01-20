@@ -18,7 +18,9 @@ public class Input extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "WEB-INF/jsp/create/createEmp.jsp";
+		request.setAttribute("h2text", "新規登録");
+		request.setAttribute("actionURL", "CreateConfirmServlet");
+		String url = "WEB-INF/jsp/input.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 	

@@ -4,15 +4,15 @@
 <!DOCTYPE html>
 
 <html>
-<jsp:include page="../common/head.jsp" />
+<jsp:include page="common/head.jsp" />
 
 <body>
 
-<jsp:include page="../common/header.jsp" />
+<jsp:include page="common/header.jsp" />
 
   <div class="container center-align">
     <main>
-      <h2>社員情報更新結果</h2>
+      <h2>${h2text}結果</h2>
 	  <p><c:out value="${msg}" /></p>
 	  <p>
 	    <form action="list" method="get">
@@ -21,8 +21,8 @@
 	  </p>
    
     </main>
-    <jsp:include page="../common/aside.jsp" />
+    <jsp:include page="common/aside.jsp" />
   </div>
-<jsp:include page="../common/footer.jsp" />
+<jsp:include page="common/footer.jsp" />
 </body>
 </html>

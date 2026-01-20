@@ -34,8 +34,8 @@ public class Done extends HttpServlet {
 				Employee emp = setEmp.set(request);
 				PostEmpLogic logic = new PostEmpLogic();
 				result = logic.execute(emp);
-
-				url = "WEB-INF/jsp/create/createDone.jsp";
+				url = "WEB-INF/jsp/done.jsp";
+				request.setAttribute("h2text", "新規登録");
 			}
 			case "/UpdateDoneServlet" ->{
 				syori = "更新";
@@ -43,14 +43,16 @@ public class Done extends HttpServlet {
 				Employee emp = setEmployee.set(request);
 				UpdateEmpLogic logic = new UpdateEmpLogic();
 				result = logic.execute(emp);
-				url = "WEB-INF/jsp/update/updateDone.jsp";
+				url = "WEB-INF/jsp/done.jsp";
+				request.setAttribute("h2text", "社員編集");
 			}
 			case "/RemoveDoneServlet" ->{
 				syori = "削除";
 				String id = request.getParameter("id");
 				RemoveEmpLogic logic = new RemoveEmpLogic();
 				result = logic.execute(id);
-				url = "WEB-INF/jsp/remove/removeDone.jsp";
+				url = "WEB-INF/jsp/done.jsp";
+				request.setAttribute("h2text", "社員削除");
 			}
 		}
 		if(result) {
