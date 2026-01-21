@@ -9,37 +9,29 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import model.AllDeleteLogic;
 import model.GetListLogic;
-import model.RemoveLogic;
 import model.Todo;
 
 
-@WebServlet("/RemoveServlet")
-public class RemoveServlet extends HttpServlet {
+@WebServlet("/AllDeleteServlet")
+public class AllDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String priorityStr = request.getParameter("priority");
-		int priority = 0;
-		try {
-		priority = Integer.parseInt(priorityStr);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		String tableName = request.getParameter("tableName");
+		AllDeleteLogic logic = new AllDeleteLogic();
 		
-		RemoveLogic logic = new RemoveLogic();
-		boolean result = logic.execute(priority);
+		boolean result = logic.execute(tableName);
 		String msg;
 		if(result) {
-			msg ="Delited！";
+			msg ="Complicated!";
 		} else {
-			msg = "Not delited!";
+			msg = "Not complicated!";
 		}
 		request.setAttribute("msg", msg);
-
+		
 		GetListLogic l = new GetListLogic();
 		List<Todo> todoList = l.execute();
 		request.setAttribute("todoList", todoList);

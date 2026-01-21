@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -10,7 +11,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+import model.GetListLogic;
 import model.LoginLogic;
+import model.Todo;
 import model.User;
 
 @WebServlet("/Login")
@@ -29,6 +32,14 @@ public class Login extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", user);
 		}
+		
+		GetListLogic logic = new GetListLogic();
+		List<Todo> todoList = logic.execute();
+		
+		request.setAttribute("todoList", todoList);
+
+		
+		
 		String url = "WEB-INF/jsp/main.jsp";
 		RequestDispatcher d =
 				request.getRequestDispatcher(url);

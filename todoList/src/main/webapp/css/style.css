@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-	background-color: rgb(255, 255, 128);
+    background-color: rgb(255 255 176);
 }
 
 * {
@@ -14,6 +14,9 @@ body, h1, h2, h3, p, ul {
 
 h2 {
 	margin-bottom: 16px;
+}
+.theme{
+	font-family: serif;
 }
 
 ul{
@@ -32,7 +35,7 @@ a:hover{
 }
 
 .center-align{
-	width: 800px;
+	width: 850px;
 	margin: 0 auto;
 }
 
@@ -82,13 +85,13 @@ table {
 }
 
 th {
-	border: solid 1px #aaa;
+	border: double 3px #e1b44b;;
 	text-align: left;
 	padding: 5px 8px;
 }
 
 td {
-	border: solid 1px #aaa;
+	border: double 3px #e1b44b;;
 	padding: 5px 8px;
 }
 
@@ -98,7 +101,15 @@ td {
 
 .btn{
 	cursor: pointer;
-	
+	color: brown;
+}
+
+table tr:nth-child(even) {
+  background-color: #fffbcc;
+}
+
+.haikei {
+	background-color: rgb(255 255 176);
 }
 
 /*
@@ -107,4 +118,7 @@ td {
 
 aside form {
 	margin-bottom: 10px;
+}
+.text-width{
+	height: 90px;
 }

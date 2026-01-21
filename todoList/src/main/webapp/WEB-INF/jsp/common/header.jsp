@@ -3,6 +3,6 @@
 <!DOCTYPE html>
 <header>
   <h1 class="center-align">
-    <a href="list">TODO LIST</a>
+    <a href="list" class="theme">TODO LIST</a>
   </h1>
 </header>

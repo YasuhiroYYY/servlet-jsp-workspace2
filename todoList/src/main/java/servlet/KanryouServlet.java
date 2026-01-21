@@ -30,9 +30,9 @@ public class KanryouServlet extends HttpServlet {
 		boolean result = logic.execute(priority);
 		String msg;
 		if(result) {
-			msg ="完了しました！";
+			msg ="Complicated!";
 		} else {
-			msg = "完了変換に失敗しました！";
+			msg = "Not complicated!";
 		}
 		request.setAttribute("msg", msg);
 
